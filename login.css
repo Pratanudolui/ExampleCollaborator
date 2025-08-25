@@ -1,0 +1,169 @@
+/* ====== Reset & Base ====== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg1: #0f1020;
+  --bg2: #191b2e;
+  --accent: #7c5cff;
+  --accent-2: #00d4ff;
+  --text: #e9ecf1;
+  --muted: #a9b0c3;
+  --danger: #ff5d7a;
+  --success: #37d39a;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-stroke: rgba(255, 255, 255, 0.14);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  --radius: 18px;
+  --transition: 220ms cubic-bezier(.2,.8,.2,1);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  background: linear-gradient(165deg, var(--bg1), var(--bg2));
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: var(--text);
+}
+
+/* ====== Layout ====== */
+section {
+  width: min(92vw, 440px);
+}
+
+form#form {
+  position: relative;
+  width: 100%;
+  padding: 32px 28px;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  border: 1px solid var(--card-stroke);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+/* ====== Emoji ====== */
+#emoji {
+  font-size: 56px;
+  text-align: center;
+  margin-bottom: 16px;
+  animation: bob 3s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ====== Heading ====== */
+form#form h1 {
+  font-size: 26px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ====== Input Wrappers ====== */
+.input-group {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.input-group i {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 18px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 14px 14px 14px 40px; /* left padding for icon */
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input::placeholder {
+  color: var(--muted);
+}
+
+/* ====== Validation ====== */
+input.success {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(55, 211, 154, 0.3);
+}
+input.warning {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(255, 93, 122, 0.3);
+}
+
+#error1, #error2 {
+  display: block;
+  min-height: 18px;
+  font-size: 12px;
+  color: var(--danger);
+  margin: 2px 0 6px 4px;
+}
+
+/* ====== Buttons ====== */
+button {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+#show_pwd {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+}
+#show_pwd:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+#submit_btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+#submit_btn:hover {
+  filter: brightness(1.1);
+}
+
+#reset_btn {
+  background: rgba(255,255,255,0.08);
+  color: var(--muted);
+}
+#reset_btn:hover {
+  background: rgba(255,255,255,0.15);
+  color: var(--text);
+}
+
+/* ====== Light Theme Variant ====== */
+body.light {
+  --bg1: #f0f0f7;
+  --bg2: #e8eaf5;
+  --card-bg: #ffffffd9;
+  --card-stroke: #dcdde8;
+  --text: #222;
+  --muted: #666;
+  --shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
